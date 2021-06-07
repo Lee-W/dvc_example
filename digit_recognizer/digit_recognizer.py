@@ -3,8 +3,15 @@ import csv
 import json
 import pickle
 
+import yaml
+
 from sklearn import metrics, svm
 from sklearn.model_selection import train_test_split
+
+
+def load_params(param_path="params.yaml"):
+    with open("params.yaml", "r") as config_file:
+        return yaml.safe_load(config_file)
 
 
 def load_data(X_path, y_path):
@@ -19,10 +26,9 @@ def load_data(X_path, y_path):
     return X, y
 
 
-def process_data(X, y):
-    # Split data into 50% train and 50% test subsets
+def process_data(X, y, params):
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.5, shuffle=False
+        X, y, test_size=params["test_size"], shuffle=params["shuffle"]
     )
     return X_train, X_test, y_train, y_test
 
@@ -38,9 +44,9 @@ def load_processed_data(data_path):
         return X, y
 
 
-def train_model(X_train, y_train):
+def train_model(X_train, y_train, params):
     # Create a classifier: a support vector classifier
-    clf = svm.SVC(gamma=0.01)
+    clf = svm.SVC(gamma=params["gamma"])
     # Learn the digits on the train subset
     return clf.fit(X_train, y_train)
 
@@ -90,14 +96,16 @@ def main():
     parser.add_argument("command", help="Supported commands: process-data,train,report")
     args = parser.parse_args()
 
+    params = load_params("params.yaml")
+
     if args.command == "process-data":
         X, y = load_data("data/digit_data.csv", "data/digit_target.csv")
-        X_train, X_test, y_train, y_test = process_data(X, y)
+        X_train, X_test, y_train, y_test = process_data(X, y, params["process_data"])
         export_processed_data((X_train, y_train), "output/training_data.pkl")
         export_processed_data((X_test, y_test), "output/testing_data.pkl")
     elif args.command == "train":
         X_train, y_train = load_processed_data("output/training_data.pkl")
-        model = train_model(X_train, y_train)
+        model = train_model(X_train, y_train, params["train"])
         export_model(model, "output/model.pkl")
     elif args.command == "report":
         X_test, y_test = load_processed_data("output/testing_data.pkl")
