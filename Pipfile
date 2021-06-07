@@ -13,6 +13,7 @@ isort = "*"
 commitizen = "*"
 invoke = "*"
 mkdocs = "*"
+mkdocs-material = "*"
 
 [requires]
 python_version = "3.9"
