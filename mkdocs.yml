@@ -1,0 +1,8 @@
+site_name: Digit Recognizer
+nav:
+  - Home: README.md
+theme:
+  name: 'material'
+repo_url: https://github.com/Lee-W/dvc_example
+remote_branch: gh-pages
+remote_name: origin
