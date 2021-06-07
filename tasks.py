@@ -22,3 +22,8 @@ def doc_build(ctx, clean=True):
         argument += " --clean"
 
     ctx.run(f"{VENV_PREFIX} mkdocs build {argument}")
+
+
+@task
+def run(ctx):
+    ctx.run(f"{VENV_PREFIX} python digit_recognizer/digit_recognizer.py")
