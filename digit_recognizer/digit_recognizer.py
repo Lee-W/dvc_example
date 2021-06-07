@@ -1,18 +1,20 @@
 import csv
 import json
 
-from sklearn import datasets, metrics, svm
+from sklearn import metrics, svm
 from sklearn.model_selection import train_test_split
 
 
-def load_data():
-    # Load data
-    digits = datasets.load_digits()
+def load_data(X_path, y_path):
+    with open(X_path) as input_file:
+        csv_reader = csv.reader(input_file, quoting=csv.QUOTE_NONNUMERIC)
+        X = list(csv_reader)
 
-    # flatten the images
-    n_samples = len(digits.images)
-    data = digits.images.reshape((n_samples, -1))
-    return data, digits.target
+    with open(y_path) as input_file:
+        csv_reader = csv.reader(input_file, quoting=csv.QUOTE_NONNUMERIC)
+        y = [row[0] for row in csv_reader]
+
+    return X, y
 
 
 def process_data(X, y):
@@ -61,7 +63,7 @@ def output_test_data_results(
 
 
 def main():
-    X, y = load_data()
+    X, y = load_data("data/digit_data.csv", "data/digit_target.csv")
     X_train, X_test, y_train, y_test = process_data(X, y)
     model = train_model(X_train, y_train)
     predicted_y = model.predict(X_test)
