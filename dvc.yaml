@@ -1,0 +1,10 @@
+stages:
+  process-data:
+    cmd: pipenv run python digit_recognizer/digit_recognizer.py process-data
+    deps:
+    - data/digit_data.csv
+    - data/digit_target.csv
+    - digit_recognizer/digit_recognizer.py
+    outs:
+    - output/testing_data.pkl
+    - output/training_data.pkl

@@ -1,0 +1,21 @@
+schema: '2.0'
+stages:
+  process-data:
+    cmd: pipenv run python digit_recognizer/digit_recognizer.py process-data
+    deps:
+    - path: data/digit_data.csv
+      md5: 942481fce846fb9750b7b8023c80a5ef
+      size: 490582
+    - path: data/digit_target.csv
+      md5: 2a6cfa13365ac9b3af5146133aca6789
+      size: 3590
+    - path: digit_recognizer/digit_recognizer.py
+      md5: 65ecf27479538a74ade42462b1566db1
+      size: 3629
+    outs:
+    - path: output/testing_data.pkl
+      md5: 78be1761d227f71b1a8f858fed766982
+      size: 529016
+    - path: output/training_data.pkl
+      md5: f95e8f978a05395ba23479ff60eda076
+      size: 528427
