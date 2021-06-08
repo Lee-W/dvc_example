@@ -40,7 +40,7 @@ def load_processed_data(data_path):
 
 def train_model(X_train, y_train):
     # Create a classifier: a support vector classifier
-    clf = svm.SVC(gamma=0.001)
+    clf = svm.SVC(gamma=0.01)
     # Learn the digits on the train subset
     return clf.fit(X_train, y_train)
 

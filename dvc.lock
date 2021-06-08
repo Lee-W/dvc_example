@@ -10,8 +10,8 @@ stages:
       md5: 2a6cfa13365ac9b3af5146133aca6789
       size: 3590
     - path: digit_recognizer/digit_recognizer.py
-      md5: 65ecf27479538a74ade42462b1566db1
-      size: 3629
+      md5: 305314b4db4d56edd7714596caa2eb76
+      size: 3628
     outs:
     - path: output/testing_data.pkl
       md5: 78be1761d227f71b1a8f858fed766982
@@ -23,31 +23,31 @@ stages:
     cmd: pipenv run python digit_recognizer/digit_recognizer.py train
     deps:
     - path: digit_recognizer/digit_recognizer.py
-      md5: 65ecf27479538a74ade42462b1566db1
-      size: 3629
+      md5: 305314b4db4d56edd7714596caa2eb76
+      size: 3628
     - path: output/training_data.pkl
       md5: f95e8f978a05395ba23479ff60eda076
       size: 528427
     outs:
     - path: output/model.pkl
-      md5: 2170343fdeec878b410186d92893739a
-      size: 307137
+      md5: 399b08243f05b3c14908ce186b7aa250
+      size: 528822
   report:
     cmd: pipenv run python digit_recognizer/digit_recognizer.py report
     deps:
     - path: digit_recognizer/digit_recognizer.py
-      md5: 65ecf27479538a74ade42462b1566db1
-      size: 3629
+      md5: 305314b4db4d56edd7714596caa2eb76
+      size: 3628
     - path: output/model.pkl
-      md5: 2170343fdeec878b410186d92893739a
-      size: 307137
+      md5: 399b08243f05b3c14908ce186b7aa250
+      size: 528822
     - path: output/testing_data.pkl
       md5: 78be1761d227f71b1a8f858fed766982
       size: 529016
     outs:
     - path: output/metrics.json
-      md5: 2a0d3e4a8f16b5869e93bd2af26b394c
+      md5: d9584bd2e675a255969f3a46a4e28487
       size: 178
     - path: output/test_data_results.csv
-      md5: 382ec966ef86becead897a22aa9cb208
+      md5: 0eb1a35286bce6806139de3ad991fb5a
       size: 8100
