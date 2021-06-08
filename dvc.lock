@@ -34,11 +34,11 @@ stages:
       size: 528427
     params:
       params.yaml:
-        train.gamma: 0.01
+        train.gamma: 0.001
     outs:
     - path: output/model.pkl
-      md5: 399b08243f05b3c14908ce186b7aa250
-      size: 528822
+      md5: 2170343fdeec878b410186d92893739a
+      size: 307137
   report:
     cmd: pipenv run python digit_recognizer/digit_recognizer.py report
     deps:
@@ -46,15 +46,15 @@ stages:
       md5: 5ff7ab6bdc55db8d4a73bd371724492c
       size: 3863
     - path: output/model.pkl
-      md5: 399b08243f05b3c14908ce186b7aa250
-      size: 528822
+      md5: 2170343fdeec878b410186d92893739a
+      size: 307137
     - path: output/testing_data.pkl
       md5: 78be1761d227f71b1a8f858fed766982
       size: 529016
     outs:
     - path: output/metrics.json
-      md5: d9584bd2e675a255969f3a46a4e28487
+      md5: 2a0d3e4a8f16b5869e93bd2af26b394c
       size: 178
     - path: output/test_data_results.csv
-      md5: 0eb1a35286bce6806139de3ad991fb5a
+      md5: 382ec966ef86becead897a22aa9cb208
       size: 8100
