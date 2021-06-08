@@ -1,3 +1,5 @@
 /training_data.pkl
 /testing_data.pkl
 /model.pkl
+/metrics.json
+/test_data_results.csv

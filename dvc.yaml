@@ -15,3 +15,12 @@ stages:
     - output/training_data.pkl
     outs:
     - output/model.pkl
+  report:
+    cmd: pipenv run python digit_recognizer/digit_recognizer.py report
+    deps:
+    - digit_recognizer/digit_recognizer.py
+    - output/model.pkl
+    - output/testing_data.pkl
+    outs:
+    - output/metrics.json
+    - output/test_data_results.csv
