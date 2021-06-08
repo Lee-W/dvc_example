@@ -19,3 +19,16 @@ stages:
     - path: output/training_data.pkl
       md5: f95e8f978a05395ba23479ff60eda076
       size: 528427
+  train:
+    cmd: pipenv run python digit_recognizer/digit_recognizer.py train
+    deps:
+    - path: digit_recognizer/digit_recognizer.py
+      md5: 65ecf27479538a74ade42462b1566db1
+      size: 3629
+    - path: output/training_data.pkl
+      md5: f95e8f978a05395ba23479ff60eda076
+      size: 528427
+    outs:
+    - path: output/model.pkl
+      md5: 2170343fdeec878b410186d92893739a
+      size: 307137

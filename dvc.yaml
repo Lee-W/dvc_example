@@ -8,3 +8,10 @@ stages:
     outs:
     - output/testing_data.pkl
     - output/training_data.pkl
+  train:
+    cmd: pipenv run python digit_recognizer/digit_recognizer.py train
+    deps:
+    - digit_recognizer/digit_recognizer.py
+    - output/training_data.pkl
+    outs:
+    - output/model.pkl
