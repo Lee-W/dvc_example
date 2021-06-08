@@ -26,7 +26,7 @@ stages:
     - digit_recognizer/digit_recognizer.py
     - output/model.pkl
     - output/testing_data.pkl
-    outs:
-    - output/test_data_results.csv
     metrics:
     - output/metrics.json
+    plots:
+    - output/test_data_results.csv
