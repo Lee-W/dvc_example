@@ -27,5 +27,6 @@ stages:
     - output/model.pkl
     - output/testing_data.pkl
     outs:
-    - output/metrics.json
     - output/test_data_results.csv
+    metrics:
+    - output/metrics.json
