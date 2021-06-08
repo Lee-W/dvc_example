@@ -8,6 +8,9 @@ stages:
     outs:
     - output/testing_data.pkl
     - output/training_data.pkl
+    params:
+    - process_data.shuffle
+    - process_data.test_size
   train:
     cmd: pipenv run python digit_recognizer/digit_recognizer.py train
     deps:
@@ -15,6 +18,8 @@ stages:
     - output/training_data.pkl
     outs:
     - output/model.pkl
+    params:
+    - train.gamma
   report:
     cmd: pipenv run python digit_recognizer/digit_recognizer.py report
     deps:

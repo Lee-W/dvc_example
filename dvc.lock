@@ -12,6 +12,10 @@ stages:
     - path: digit_recognizer/digit_recognizer.py
       md5: 5ff7ab6bdc55db8d4a73bd371724492c
       size: 3863
+    params:
+      params.yaml:
+        process_data.shuffle: false
+        process_data.test_size: 0.5
     outs:
     - path: output/testing_data.pkl
       md5: 78be1761d227f71b1a8f858fed766982
@@ -28,6 +32,9 @@ stages:
     - path: output/training_data.pkl
       md5: f95e8f978a05395ba23479ff60eda076
       size: 528427
+    params:
+      params.yaml:
+        train.gamma: 0.01
     outs:
     - path: output/model.pkl
       md5: 399b08243f05b3c14908ce186b7aa250
