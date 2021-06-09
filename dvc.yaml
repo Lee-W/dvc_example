@@ -29,4 +29,7 @@ stages:
     metrics:
     - output/metrics.json
     plots:
-    - output/test_data_results.csv
+    - output/test_data_results.csv:
+        template: confusion
+        x: actual
+        y: predicted
