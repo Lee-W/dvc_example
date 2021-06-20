@@ -58,3 +58,14 @@ stages:
     - path: output/test_data_results.csv
       md5: 382ec966ef86becead897a22aa9cb208
       size: 8100
+  plot:
+    cmd: pipenv run dvc plots show output/test_data_results.csv --template confusion
+      -x actual -y predicted --out confusion_matrix.html
+    deps:
+    - path: output/test_data_results.csv
+      md5: 382ec966ef86becead897a22aa9cb208
+      size: 8100
+    outs:
+    - path: confusion_matrix.html
+      md5: 468022644381579716e5e1a2b9df51aa
+      size: 86827

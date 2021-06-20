@@ -33,3 +33,10 @@ stages:
         template: confusion
         x: actual
         y: predicted
+  plot:
+    cmd: pipenv run dvc plots show output/test_data_results.csv --template confusion
+      -x actual -y predicted --out confusion_matrix.html
+    deps:
+    - output/test_data_results.csv
+    outs:
+    - confusion_matrix.html
